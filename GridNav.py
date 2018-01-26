@@ -10,6 +10,7 @@ class MapBuilder:
         self.gridList = [] #type:List[Grid]
         self.sceneTree = None #type:QuadTree
         self.bounds = None #type:Box2D
+        self.obstacles = None #type:List[Obstacle]
 
     def BuildMap(self,bounds:Box2D,obstacles:List[Obstacle]):
         self.sceneTree = QuadTree(bounds)
@@ -150,6 +151,7 @@ class MapBuilder:
                             leftEdges.append(e[0])
                     leftEdges.sort(key = lambda e:e.GetMinY())
                     rightEdges.clear()
+                    yield leftEdges
 
             if i == len(xValues):
                 continue

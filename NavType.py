@@ -183,6 +183,10 @@ class Obstacle(Interface_QuadTreeDataSupptor):
         self.bounds = Box2D(Point2D(0,0),Point2D(0,0))
         self.bCanCrossUp = False
         self.bCanCrossDown = False
+    def copy(self,ob:'Obstacle'):
+        self.bounds = ob.bounds
+        self.bCanCrossUp = ob.bCanCrossUp
+        self.bCanCrossDown = ob.bCanCrossDown
     def GetBounds(self):
         return self.bounds
     def UpdateBounds(self,bounds:Box2D):

@@ -80,6 +80,8 @@ class ZoomPan:
     def pan_factory(self, ax):
         def onPress(event):
             if event.inaxes != ax: return
+            #only react the right mouse button
+            if event.button != 3: return
             self.cur_xlim = ax.get_xlim()
             self.cur_ylim = ax.get_ylim()
             self.press = self.x0, self.y0, event.xdata, event.ydata
